@@ -17,13 +17,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: admin
+  database: postgres
   pool: 5
 
 development:
   <<: *default
   username: postgres
-  password: lumen
+  password: postgres
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

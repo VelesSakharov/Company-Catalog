@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
+  get 'companies/index'
+
+  get 'companies/new'
+
+  get 'companies/create'
+
+  get 'companies/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   #root 'companies_creation#create'
+  root 'companies#index'
+  resources :companies
+
+ # GET /companies => "companies#index"
+ # GET /companies/new => "companies#new"
+ # GET /companies/*id => "companies#show"
+ # POST /companies => "companies#create"
+
+
+   #resources :inputs
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
