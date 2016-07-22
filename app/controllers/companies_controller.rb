@@ -9,15 +9,25 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(params[:company])
+    @company = Company.new(company_params)
     if @company.save
-      redirect_to @company, alert: "Company created successfully."
+    redirect_to @company
     else
       redirect_to new_company_path, alert: "Error creating company."
     end
+
   end
 
   def show
     @companies = Company.find(params[:id])
   end
+
+
+private
+
+  def company_params
+    params.require(:company).permit(:company_name, :company_location, :company_contacts, :company_type)
+  end
+
+
 end

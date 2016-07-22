@@ -2,15 +2,17 @@
 <table>
   <thead>
   <th>Name</th>
-  <th>Email</th>
   </thead>
   <tbody>
   <% @companies.each do |company| %>
       <tr>
-        <td><%= @company.name %></td>
-        <td><%= @company.location %></td>
-        <td><%= @company.contacts %></td>
-        <td><%= @company.type%></td>
+        <td><%= company.company_name %></td>
+        <td><%= company.company_location%> </td>
+        <td><%= company.company_contacts %></td>
+        <td><%= company.company_type%> </td>
+        <td><%= company.created_at%> </td>
+
+
       </tr>
   <% end %>
   </tbody>

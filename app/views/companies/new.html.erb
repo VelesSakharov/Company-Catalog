@@ -1,15 +1,16 @@
 
-<%= form_for(@company) do |f| %>
+<%= form_for @company do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
-
+    <%=f.text_field :company_name%>
     <%= f.label :location %>
-    <%= f.text_field :location %>
-
+    <%=f.text_field :company_location%>
     <%= f.label :contacts %>
-    <%= f.text_field :contacts %>
-
+    <%=f.text_field :company_contacts%>
     <%= f.label :type %>
-    <%= f.check_box :type %>
+    <%=f.check_box :company_type%>
+
+    <br></br>
+
+    <%= f.submit "Submit  " %>
 <p>Find me in app/views/companies/new.html.erb</p>
 <% end%>
