@@ -18,10 +18,31 @@ class CompaniesController < ApplicationController
 
   end
 
+  def destroy
+    @company = Company.find(params[:id])
+    @company.destroy
+
+      respond_to do |format|
+        format.html { redirect_to(companies_url) }
+        format.xml  { head :ok }
+      end
+    end
+
+
   def show
     @companies = Company.find(params[:id])
+    @company = Company.last
   end
 
+   def edit
+     @company = Company.find(params[:id])
+   end
+
+  def update
+    @company = Company.find(params[:id])
+    @company.update!(company_params)
+    redirect_to @company
+  end
 
 private
 

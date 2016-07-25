@@ -1,5 +1,9 @@
 class Company < ActiveRecord::Base
 
+  validates :company_name, presence: true
+  validates :company_location, presence: true
+  validates :company_contacts, presence: true
+
 
   def create
     create_table :companies do |t|

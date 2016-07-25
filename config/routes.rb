@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
-  get 'companies/index'
+  # get 'companies/index'
+  #
+  # get 'companies/edit'
+  #
+  # get 'companies/new'
+  #
+  # get 'companies/create'
+  #
+  # get 'companies/show'
 
-  get 'companies/new'
 
-  get 'companies/create'
-
-  get 'companies/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'companies#new'
+  root 'companies#index'
   #root 'companies#index'
   resources :companies
 
@@ -19,7 +23,6 @@ Rails.application.routes.draw do
  # GET /companies/new => "companies#new"
  # GET /companies/*id => "companies#show"
  # POST /companies => "companies#create"
-
 
    #resources :inputs
 
