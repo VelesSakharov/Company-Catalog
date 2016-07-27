@@ -1,16 +1,17 @@
+<% provide(:title, "New company") %>
 
 <%= form_for @company do |f| %>
     <%= f.label :name %>
-    <%=f.text_field :company_name%>
+    <%=f.text_field :name%>
     <%= f.label :location %>
-    <%=f.text_field :company_location%>
+    <%=f.text_field :location%>
     <%= f.label :contacts %>
-    <%=f.text_field :company_contacts%>
-    <%= f.label :type %>
-    <%=f.check_box :company_type%>
+    <%=f.text_field :contacts%>
+    <%= f.label :ownership_type %>
+    <%=f.text_field :ownership%>
 
-    <br><center><%= f.submit "Submit" %></center></br>
+    <br><center><%= f.submit "Submit", :class=>"button" %></center></br>
 
 
-<p>Find me in app/views/companies/new.html.erb</p>
+
 <% end%>

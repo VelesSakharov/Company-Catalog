@@ -1,6 +1,27 @@
+<% provide(:title, "Company info") %>
 
 
-<h1>Company successfully created</h1>
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Location</th>
+  <th>Contacts</th>
+  <th>Type</th>
+  <th>Created</th>
+  </thead>
+  <tbody>
+  <% @companies%>
+      <tr>
 
+        <td><%= @companies.name %></td>
+        <td><%= @companies.location%> </td>
+        <td><%= @companies.contacts %></td>
+        <td><%= @companies.ownership%> </td>
+        <td><%= @companies.created_at%> </td>
+        <td><%= link_to "Edit", edit_company_path(@companies) %></td>
+        <td><%= link_to "Remove", @companies, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
 
+  </tbody>
+</table>
 <center><%= button_to "Company List", companies_path, :class => "button", :method => :get  %></center>

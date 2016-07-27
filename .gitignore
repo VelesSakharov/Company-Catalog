@@ -12,3 +12,7 @@
 !/log/.keep
 /tmp
 database.env
+/.idea
+/test/*
+/config/database.yml
+/config/secrets.yml

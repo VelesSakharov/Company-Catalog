@@ -1,10 +1,10 @@
 class CreateCompanies < ActiveRecord::Migration
   def change
     create_table :companies do |t|
-      t.string :company_name
-      t.string :company_location
-      t.string :company_contacts
-      t.integer :company_type
+      t.string :name
+      t.string :location
+      t.string :contacts
+      t.string :ownership
 
       t.timestamps null: false
     end

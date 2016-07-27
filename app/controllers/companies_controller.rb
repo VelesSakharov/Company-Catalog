@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-    redirect_to @company
+      redirect_to @company, alert: "Company created"
     else
       redirect_to new_company_path, alert: "Error creating company."
     end
@@ -21,17 +21,13 @@ class CompaniesController < ApplicationController
   def destroy
     @company = Company.find(params[:id])
     @company.destroy
-
-      respond_to do |format|
-        format.html { redirect_to(companies_url) }
-        format.xml  { head :ok }
-      end
-    end
+    #flash: "Company deleted"
+    redirect_to(companies_url)
+  end
 
 
   def show
     @companies = Company.find(params[:id])
-    @company = Company.last
   end
 
    def edit
@@ -47,7 +43,7 @@ class CompaniesController < ApplicationController
 private
 
   def company_params
-    params.require(:company).permit(:company_name, :company_location, :company_contacts, :company_type)
+    params.require(:company).permit(:name, :location, :contacts, :ownership)
   end
 
 
