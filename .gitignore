@@ -14,7 +14,6 @@
 .env
 /.idea
 /test/*
-/config/database.yml
 /config/secrets.yml
 app/assets/javascripts/error.coffee
 app/assets/stylesheets/error.scss
