@@ -15,5 +15,48 @@
 
     <%= yield %>
 
+    <% if flash[:deleted] -%>
+      <div class="col-sl-8">
+        <div class="container">
+          <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> <%= flash[:deleted] %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if flash[:error] -%>
+      <div class="col-sm-8">
+        <div class="container">
+          <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> <%= flash[:error] %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if flash[:created] -%>
+      <div class="col-sl-8">
+        <div class="container">
+          <div class="alert alert-success fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> <%= flash[:created] %>
+          </div>
+        </div>
+      </div>
+  <%end%>
+  <% if flash[:updated] -%>
+      <div class="col-sl-8">
+        <div class="container">
+          <div class="alert alert-success fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> <%= flash[:updated] %>
+          </div>
+        </div>
+      </div>
+  <%end%>
+
   </body>
 </html>

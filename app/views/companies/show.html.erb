@@ -1,6 +1,5 @@
 <% provide(:title, "Company info") %>
 
-
 <table>
   <thead>
   <th>Name</th>
@@ -9,19 +8,24 @@
   <th>Type</th>
   <th>Created</th>
   </thead>
+
   <tbody>
-  <% @companies%>
+    <% @company%>
       <tr>
-
-        <td><%= @companies.name %></td>
-        <td><%= @companies.location%> </td>
-        <td><%= @companies.contacts %></td>
-        <td><%= @companies.ownership%> </td>
-        <td><%= @companies.created_at%> </td>
-        <td><%= link_to "Edit", edit_company_path(@companies) %></td>
-        <td><%= link_to "Remove", @companies, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= @company.name %></td>
+        <td><%= @company.location%> </td>
+        <td><%= @company.contacts %></td>
+        <td><%= @company.ownership%> </td>
+        <td><%= @company.created_at%> </td>
+        <td><%= link_to "Edit", edit_company_path(@company) %></td>
+        <td><%= link_to "Remove", @company, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
-
   </tbody>
 </table>
-<center><%= button_to "Company List", companies_path, :class => "button", :method => :get  %></center>
+
+<br>
+  <center>
+    <%= button_to "Company List", companies_path, :class => "button", :method => :get  %>
+  </center>
+</br>
+

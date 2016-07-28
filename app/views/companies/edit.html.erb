@@ -1,24 +1,28 @@
 <% provide(:title, "Edit company") %>
 
 
-<div class="row">
+<div class="col-md-8">
 
     <%= form_for @company do |f| %>
 
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, required: true %>
 
         <%= f.label :location %>
-        <%=f.text_field :location%>
+        <%=f.text_field :location, required: true%>
 
         <%= f.label :contacts %>
-        <%=f.text_field :contacts%>
+        <%=f.text_field :contacts, required: true%>
 
         <%= f.label :type %>
         <%=f.text_field :ownership%>
+
       <br>
+        <center>
         <%= f.submit "Save changes", :class=>"button" %>
+       </center>
       </br>
+
     <% end %>
 
 </div>

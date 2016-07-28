@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
 
+
+
   def index
     @companies = Company.all
   end
@@ -11,23 +13,23 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to @company, alert: "Company created"
+      flash[:created] = "Post successfully created"
+      redirect_to @company
     else
-      redirect_to new_company_path, alert: "Error creating company."
+      flash[:error] = "Error creating company"
+      redirect_to (:back) #new_company_path(@company)
     end
-
   end
 
   def destroy
     @company = Company.find(params[:id])
     @company.destroy
-    #flash: "Company deleted"
+    flash[:deleted] = "Company deleted"
     redirect_to(companies_url)
   end
 
-
   def show
-    @companies = Company.find(params[:id])
+    @company = Company.find(params[:id])
   end
 
    def edit
@@ -38,13 +40,13 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.update!(company_params)
     redirect_to @company
-  end
+    flash[:updated] = "Post successfully updated"
+   end
 
-private
+  private
 
   def company_params
     params.require(:company).permit(:name, :location, :contacts, :ownership)
   end
-
 
 end
