@@ -3,8 +3,9 @@ class CompaniesController < ApplicationController
 
 
   def index
-    @companies = Company.all
-  end
+    #@companies = Company.where('id > 10').limit(5).order('id asc')
+    @companies = Company.order(id: :desc)
+    end
 
   def new
     @company = Company.new
@@ -13,18 +14,18 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      flash[:created] = "Post successfully created"
+      flash[:notice] = "Post successfully created"
       redirect_to @company
     else
-      flash[:error] = "Error creating company"
-      redirect_to (:back) #new_company_path(@company)
+      flash[:alert] = "Error creating company"
+      render :new
     end
   end
 
   def destroy
     @company = Company.find(params[:id])
     @company.destroy
-    flash[:deleted] = "Company deleted"
+    flash[:alert] = "Company deleted"
     redirect_to(companies_url)
   end
 
@@ -38,10 +39,13 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    @company.update!(company_params)
-    redirect_to @company
-    flash[:updated] = "Post successfully updated"
-   end
+    if @company.update(company_params)
+      flash[:notice] = "Post successfully updated"
+      redirect_to @company
+     else
+      render :edit
+    end
+  end
 
   private
 

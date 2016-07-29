@@ -10,10 +10,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
-/tmp
-.env
-/.idea
-/test/*
-/config/secrets.yml
-app/assets/javascripts/error.coffee
-app/assets/stylesheets/error.scss
+/tmp/
+/.idea/

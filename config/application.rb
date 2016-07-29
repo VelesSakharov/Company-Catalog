@@ -8,11 +8,6 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
-module MyApp
-  class Application < Rails::Application
-    config.exceptions_app = self.routes
-  end
-end
 
 module CompanyCatalog
   class Application < Rails::Application
@@ -34,6 +29,3 @@ module CompanyCatalog
   end
 end
 
-MyApp::Application.routes.draw do
-  get "*any", via: :all, to: "errors#not_found"
-end
