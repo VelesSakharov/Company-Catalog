@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
+
     if @company.save
       flash[:notice] = "Post successfully created"
       redirect_to @company
