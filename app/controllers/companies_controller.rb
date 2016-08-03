@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
-      flash[:notice] = "Post successfully created"
+      flash[:notice] = "Company successfully created"
       redirect_to @company
     else
       flash[:alert] = "Error creating company"
@@ -41,7 +41,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     if @company.update(company_params)
-      flash[:notice] = "Post successfully updated"
+      flash[:notice] = "Company successfully updated"
       redirect_to @company
      else
       render :edit
