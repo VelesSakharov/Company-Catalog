@@ -33,7 +33,6 @@ class DepartmentsController < ApplicationController
   def show
     @company = Company.find(params[:company_id])
     @department = Department.find(params[:id])
-   # @departments = Department.order(department_id: :desc)
   end
 
   def edit
@@ -42,7 +41,9 @@ class DepartmentsController < ApplicationController
   end
 
   def update
+
     @department = Department.find(params[:id])
+
     if @department.update(department_params)
       flash[:notice] = "Department successfully updated"
       redirect_to company_department_path(@department.company_id, @department.id)

@@ -3,15 +3,15 @@ class CompaniesController < ApplicationController
 
 
   def index
-    #@companies = Company.where('id > 10').limit(5).order('id asc')
     @companies = Company.order(id: :desc)
-    end
+  end
 
   def new
     @company = Company.new
   end
 
   def create
+
     @company = Company.new(company_params)
 
     if @company.save
@@ -34,12 +34,14 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
-   def edit
+  def edit
      @company = Company.find(params[:id])
-   end
+  end
 
   def update
+
     @company = Company.find(params[:id])
+
     if @company.update(company_params)
       flash[:notice] = "Company successfully updated"
       redirect_to @company
