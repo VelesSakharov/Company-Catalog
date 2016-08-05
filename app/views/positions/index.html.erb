@@ -1,0 +1,29 @@
+<% provide(:title, "Departments list") %>
+
+
+<table class="table table-hover">
+  <thead>
+  <th>Name</th>
+  <th>Description</th>
+  <th>Created</th>
+  </thead>
+
+  <tbody>
+  <% @positions.each do |d| %>
+          <tr>
+            <td><%= d.name %></td>
+            <td><%= d.description %></td>
+            <td><%= d.created_at%> </td>
+            <td><%= link_to "Edit", edit_position_path(d)%></td>
+            <td><%= link_to "Remove", d, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          </tr>
+  <%end%>
+  </tbody>
+
+</table>
+
+
+
+<br>
+<%= button_to "Companies", companies_path, :class=>"button", :method => :get  %>
+</br>

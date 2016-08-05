@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-
+#add positions and relation to positions
 
   def index
     @companies = Company.order(id: :desc)
@@ -53,7 +53,7 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :location, :contacts, :ownership)
+    params.require(:company).permit(:name, :location, :contacts, :ownership, :position_ids => [])
   end
 
 end

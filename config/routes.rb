@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'positions/new'
+
+  get 'positions/create'
+
+  get 'positions/destroy'
+
+  get 'positions/edit'
+
+  get 'positions/update'
+
   # get 'companies/index'
   #
   # get 'companies/edit'
@@ -20,6 +30,8 @@ Rails.application.routes.draw do
   resources :companies do
     resources :departments, shalloy: true
   end
+  resources :positions
+
 
  # GET /companies => "companies#index"
  # GET /companies/new => "companies#new"
