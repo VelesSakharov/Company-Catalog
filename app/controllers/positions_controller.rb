@@ -1,7 +1,13 @@
 class PositionsController < ApplicationController
 
   def index
-    @positions = Position.order(id: :desc)
+    if params.has_key?(:company_id)
+        @company = Company.find(params[:company_id])
+        @position_ids = @company.positions.find(params[:company_id])
+        @positions = Position.find(:position_ids)
+    else
+        @positions = Position.order(id: :desc)
+    end
   end
 
   def new
@@ -29,7 +35,8 @@ class PositionsController < ApplicationController
   end
 
   def show
-    @position = Position.find(params[:id])
+    @company = Company.find(params[:id])
+    @position = @company.positions.find(params[:company_ids])
   end
 
   def edit

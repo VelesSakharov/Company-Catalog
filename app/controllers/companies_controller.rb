@@ -11,8 +11,8 @@ class CompaniesController < ApplicationController
   end
 
   def create
-
     @company = Company.new(company_params)
+    #p = @company.positions.new(params[:position_ids])
 
     if @company.save
       flash[:notice] = "Company successfully created"
@@ -53,7 +53,7 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :location, :contacts, :ownership, :position_ids => [])
+    params.require(:company).permit(:name, :location, :contacts, :ownership, :position_ids=>[])
   end
 
 end

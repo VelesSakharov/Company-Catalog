@@ -20,7 +20,6 @@
         <td><%= @company.contacts %></td>
         <td><%= @company.ownership%> </td>
         <td><%= @company.created_at%> </td>
-        <td><%= position.name %></td>
         <td><%= link_to "Edit", edit_company_path(@company) %></td>
         <td><%= link_to "Remove", @company, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>

@@ -18,8 +18,8 @@
         <%= f.label :type %>
         <%=f.text_field :ownership%>
 
-      <%= f.label :position_id %>
-      <%= f.select( :position_id, Position.all.map {|c| [c.name, c.id]}, {:selected=>params[:position_id]},{  :multiple => true} )%><!--multicheck -->
+      <%= f.label :position_ids %>
+      <%= f.select( :position_ids, Position.all.map {|c| [c.name, c.id]}, {:selected=>params[:position_ids]},{  :multiple => true})%><!--multicheck ) -->
 
 
       <br><center>

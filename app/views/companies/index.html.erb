@@ -6,7 +6,6 @@
     <th>Name</th>
     <th>Location</th>
     <th>Contacts</th>
-    <th>Positions</th>
     <th>Type</th>
     <th>Created</th>
   </thead>
@@ -17,11 +16,10 @@
         <td><%= company.name %></td>
         <td><%= company.location%> </td>
         <td><%= company.contacts %></td>
-       <!-- запилить иттератор по соединяющей бд для вывода всех ассоциированных имен-->
         <td><%= company.ownership%> </td>
         <td><%= company.created_at%> </td>
         <td><%= link_to "Show departments", company_departments_path(company.id) %> </td>
-        <td><%= link_to "Show positions", position_path(company.id) %> </td><!--заглушка, потом красоту наделаем-->
+        <td><%= link_to "Show positions", positions_path(:company_id=>company.id) %> </td><!--заглушка, потом красоту наделаем-->
         <td><%= link_to "Edit", edit_company_path(company) %></td>
         <td><%= link_to "Remove", company, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>

@@ -10,17 +10,14 @@
 
   <tbody>
 
-  <% if @position.company_ids.equal?(@position.id) %>
-
   <tr>
         <td><%= @position.name %></td>
         <td><%= @position.description%> </td>
         <td><%= @position.created_at%> </td>
         <td><%= link_to "Edit", edit_position_path %></td>
         <td><%= link_to "Remove", company_path, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
+  </tr>
 
-<%end%>
 
   </tbody>
 </table>
