@@ -1,0 +1,50 @@
+<% provide(:title, "Edit department") %>
+
+
+<div class="col-md-8">
+
+  <%= form_for [@company, @user] do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true %>
+
+      <%= f.label :birth_date %>
+      <%= f.text_field :birth, required: true %>
+
+      <%= f.label :contacts %>
+      <%= f.text_field :contacts, required: true %>
+
+      <%= f.label :education %>
+      <%= f.text_field :education%>
+
+      <%= f.label :previous_work %>
+      <%= f.text_field :lastwork %>
+
+      <%= f.label :position_id %>
+      <%= f.select( :position_id, Position.all.map {|c| [c.name, c.id]}, :selected=>params[:position_id]) %>
+
+      <%= f.label :company_id %>
+      <%= f.select( :company_id, Company.all.map {|c| [c.name, c.id]}, :selected=>params[:company_id]) %>
+
+      <%= f.label :status %>
+      <%= f.radio_button(:status, "1") %>
+      <%= f.label(:status, "trainee") %>
+      <%= f.radio_button(:status, "2") %>
+      <%= f.label(:status, "Working") %>
+      <%= f.radio_button(:status, "3") %>
+      <%= f.label(:status, "fired") %>
+
+      <br><center>
+  <%= f.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." } %>
+</center></br>
+
+  <% end %>
+
+  <% if @user.errors.any? %>
+
+      <% @user.errors.full_messages.each do |error| %>
+          <%flash[:alert] = error%>
+      <% end %>
+
+  <% end %>
+</div>

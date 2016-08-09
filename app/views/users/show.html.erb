@@ -1,0 +1,40 @@
+<% provide(:title, "Department info") %>
+
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Birth date</th>
+  <th>Company</th>
+  <th>Contacts</th>
+  <th>Education</th>
+  <th>Last work</th>
+  <th>Position</th>
+  <th>Created</th>
+  </thead>
+
+  <tbody>
+
+  <% if @user.company_id.equal?(@company.id) %>
+
+      <tr>
+        <td><%= @user.name %></td>
+        <td><%= @user.birth%> </td>
+        <td><%= @company.name%> </td>
+        <td><%= @user.contacts%> </td>
+        <td><%= @user.education%> </td>
+        <td><%= @user.lastwork%> </td>
+        <td><%= @position.name%> </td>
+        <td><%= @user.created_at%> </td>
+        <td><%= link_to "Edit", edit_company_user_path(@user.company_id.to_c, @user) %></td>
+        <td><%= link_to "Remove", company_user_path, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+
+  <%end%>
+
+
+  </tbody>
+</table>
+
+<br><center>
+  <%= button_to "User List", company_users_path, :class => "button", :method => :get  %>
+</center></br>

@@ -50,4 +50,19 @@ ActiveRecord::Schema.define(version: 20160721133557) do
     t.datetime "updated_at"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "position_id"
+    t.string   "name"
+    t.string   "birth"
+    t.string   "contacts"
+    t.string   "education"
+    t.string   "lastwork"
+    t.integer  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
+
 end

@@ -28,5 +28,18 @@ class CreateCompanies < ActiveRecord::Migration
       t.belongs_to :company, index: true
       t.belongs_to :position, index: true
     end
+
+    create_table :users do |t|
+      t.integer :company_id, index: true, foreign_key: true
+      t.integer :position_id, foreign_key: true
+      t.string :name
+      t.string :birth
+      t.string :contacts
+      t.string :education
+      t.string :lastwork
+      t.integer :status
+
+      t.timestamps null: false
+    end
   end
 end

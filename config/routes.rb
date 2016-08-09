@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/create'
+
+  get 'users/new'
+
+  get 'users/edit'
+
+  get 'users/show'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   get 'positions/new'
 
   get 'positions/create'
@@ -29,6 +43,7 @@ Rails.application.routes.draw do
   #root 'companies#index'
   resources :companies do
     resources :departments, shalloy: true
+    resources :users, shalloy: true
   end
   resources :positions
 
