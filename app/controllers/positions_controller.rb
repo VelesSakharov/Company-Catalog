@@ -2,11 +2,10 @@ class PositionsController < ApplicationController
 
   def index
     if params.has_key?(:company_id)
-        @company = Company.find(params[:company_id])
-        @position_ids = @company.positions.find(params[:company_id])
-        @positions = Position.find(:position_ids)
+      @company = Company.find(params[:company_id])
+      @positions = @company.positions
     else
-        @positions = Position.order(id: :desc)
+      @positions = Position.order(id: :desc)
     end
   end
 

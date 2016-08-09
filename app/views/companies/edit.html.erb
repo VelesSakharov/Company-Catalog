@@ -18,9 +18,9 @@
         <%= f.label :type %>
         <%=f.text_field :ownership%>
 
-      <%= f.label :position_ids %>
-      <%= f.select( :position_ids, Position.all.map {|c| [c.name, c.id]}, {:selected=>params[:position_ids]},{  :multiple => true})%><!--multicheck ) -->
 
+        <%= f.label :position_ids %><!--multicheck ) -->
+        <%= f.collection_check_boxes(:position_ids, Position.all, :id, :name)%>
 
       <br><center>
 
@@ -28,7 +28,7 @@
 
       </center></br>
 
-     <% end %>
+    <% end %>
 
 
     <% if @company.errors.any? %>
