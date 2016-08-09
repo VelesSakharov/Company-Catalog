@@ -25,12 +25,29 @@ ActiveRecord::Schema.define(version: 20160721133557) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "companies_positions", id: false, force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "position_id"
+  end
+
+  add_index "companies_positions", ["company_id"], name: "index_companies_positions_on_company_id", using: :btree
+  add_index "companies_positions", ["position_id"], name: "index_companies_positions_on_position_id", using: :btree
+
   create_table "departments", force: :cascade do |t|
     t.integer  "company_id"
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "departments", ["company_id"], name: "index_departments_on_company_id", using: :btree
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

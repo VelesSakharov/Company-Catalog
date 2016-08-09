@@ -19,6 +19,7 @@
         <td><%= company.ownership%> </td>
         <td><%= company.created_at%> </td>
         <td><%= link_to "Show departments", company_departments_path(company.id) %> </td>
+        <td><%= link_to "Show positions", positions_path(:company_id=>company.id) %> </td><!--заглушка, потом красоту наделаем-->
         <td><%= link_to "Edit", edit_company_path(company) %></td>
         <td><%= link_to "Remove", company, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
@@ -27,6 +28,12 @@
 
 </table>
 
-  <br><center>
-     <%= button_to "New Company", new_company_path, :class=>"button", :method => :get  %>
-  </center></br>
+<br><center>
+  <%= button_to "New Company", new_company_path, :class=>"button", :method => :get  %>
+</center></br>
+
+<br><center>
+  <%= button_to "New Position", new_position_path, :class=>"button", :method => :get  %>
+</center></br>
+
+<%= button_to "List Positions", positions_url, :class=>"button", :method => :get  %>
