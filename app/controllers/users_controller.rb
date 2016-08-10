@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  #before_filter :company_user, :only=> %w[show edit]
+  #before_filter :company_find, :only=> %w[index new]
+  #before_filter :user_find, :only=> %w[destroy update]
 
     def index
       @company = Company.find(params[:company_id])
@@ -42,9 +45,7 @@ class UsersController < ApplicationController
     end
 
     def update
-
       @user = User.find(params[:id])
-
       if @user.update(user_params)
         flash[:notice] = "User successfully updated"
         redirect_to company_user_path(@user.company_id, @user.id)
@@ -59,5 +60,17 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :birth, :contacts, :status, :lastwork, :education, :company_id, :position_id)
     end
 
-  end
+    def company_user
+      @company = Company.find(params[:company_id])
+      @user = User.find(params[:id])
+    end
+
+    def user_find
+      @user = User.find(params[:id])
+    end
+
+    def company_find
+      @company = Company.find(params[:company_id])
+    end
+end
 

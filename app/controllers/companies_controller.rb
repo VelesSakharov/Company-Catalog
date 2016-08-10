@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  #before_filter :find_company, :only=> %w[show edit update destroy]
 
   def index
     @companies = Company.order(id: :desc)
@@ -32,13 +33,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-     @company = Company.find(params[:id])
+    @company = Company.find(params[:id])
   end
 
   def update
-
     @company = Company.find(params[:id])
-
     if @company.update(company_params)
       flash[:notice] = "Company successfully updated"
       redirect_to @company
@@ -51,6 +50,10 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :location, :contacts, :ownership, :position_ids=>[])
+  end
+
+  def find_company
+    @company = Company.find(params[:id])
   end
 
 end

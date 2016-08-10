@@ -1,4 +1,5 @@
 class PositionsController < ApplicationController
+  #before_filter :position_find, :only=> %w[destroy edit update]
 
   def index
     if params.has_key?(:company_id)
@@ -43,9 +44,7 @@ class PositionsController < ApplicationController
   end
 
   def update
-
     @position = Position.find(params[:id])
-
     if @position.update(position_params)
       flash[:notice] = "Position successfully updated"
       redirect_to companies_url
@@ -60,4 +59,7 @@ class PositionsController < ApplicationController
     params.require(:position).permit(:name, :description)
   end
 
+  def position_find
+    @position = Position.find(params[:id])
+  end
 end

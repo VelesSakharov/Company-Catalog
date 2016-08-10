@@ -1,4 +1,7 @@
 class DepartmentsController < ApplicationController
+  #before_filter :company_department, :only=> %w[show edit]
+  #before_filter :company_find, :only=> %w[index new]
+  #before_filter :department_find, :only=> %w[destroy update]
 
   def index
     @company = Company.find(params[:company_id])
@@ -41,9 +44,7 @@ class DepartmentsController < ApplicationController
   end
 
   def update
-
     @department = Department.find(params[:id])
-
     if @department.update(department_params)
       flash[:notice] = "Department successfully updated"
       redirect_to company_department_path(@department.company_id, @department.id)
@@ -58,4 +59,16 @@ class DepartmentsController < ApplicationController
     params.require(:department).permit(:name, :description, :company_id)
   end
 
+  def company_department
+    @company = Company.find(params[:company_id])
+    @department = Department.find(params[:id])
+  end
+
+  def company_find
+    @company = Company.find(params[:company_id])
+  end
+
+  def department_find
+    @department = Department.find(params[:id])
+  end
 end
