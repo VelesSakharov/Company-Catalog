@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def index
       @company = Company.find(params[:company_id])
-      @users = User.order(id: :desc)
+      @users = User.order(id: :asc)
     end
 
     def new

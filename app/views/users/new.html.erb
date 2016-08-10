@@ -1,4 +1,4 @@
-<% provide(:title, "New user") %>
+<% provide(:title, "New employee") %>
 
 
 <div class="col-sm-8">
@@ -10,7 +10,7 @@
       <%= f.text_field :name, required: true %>
 
       <%= f.label :birth_date %>
-      <%= f.text_field :birth, required: true %>
+      <%= f.date_select :birth, :start_year => 1920, :end_year => Time.now.year %>
 
       <%= f.label :contacts %>
       <%= f.text_field :contacts, required: true %>

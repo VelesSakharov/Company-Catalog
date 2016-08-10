@@ -5,7 +5,7 @@ class PositionsController < ApplicationController
       @company = Company.find(params[:company_id])
       @positions = @company.positions
     else
-      @positions = Position.order(id: :desc)
+      @positions = Position.order(id: :asc)
     end
   end
 
@@ -30,7 +30,7 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
     @position.destroy
     flash[:alert] = "Position deleted"
-    redirect_to(companies_url)
+    redirect_to(positions_url)
   end
 
   def show

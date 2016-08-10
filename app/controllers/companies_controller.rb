@@ -1,7 +1,5 @@
 class CompaniesController < ApplicationController
 
-#add positions and relation to positions
-
   def index
     @companies = Company.order(id: :desc)
   end
@@ -12,7 +10,6 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    #p = @company.positions.new(params[:position_ids])
 
     if @company.save
       flash[:notice] = "Company successfully created"

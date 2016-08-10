@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20160721133557) do
     t.integer  "company_id"
     t.integer  "position_id"
     t.string   "name"
-    t.string   "birth"
+    t.date     "birth"
     t.string   "contacts"
     t.string   "education"
     t.string   "lastwork"

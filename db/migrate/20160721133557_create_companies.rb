@@ -33,7 +33,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.integer :company_id, index: true, foreign_key: true
       t.integer :position_id, foreign_key: true
       t.string :name
-      t.string :birth
+      t.date :birth
       t.string :contacts
       t.string :education
       t.string :lastwork
