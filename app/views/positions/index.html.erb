@@ -9,13 +9,13 @@
   </thead>
 
   <tbody>
-    <% @positions.each do |d| %>
+    <% @positions.each do |position| %>
             <tr>
-              <td><%= d.name %></td>
-              <td><%= d.description %></td>
-              <td><%= d.created_at%> </td>
-              <td><%= link_to "Edit", edit_position_path(d)%></td>
-              <td><%= link_to "Remove", d, method: :delete, data: { confirm: "Are you sure?" } %></td>
+              <td><%= position.name %></td>
+              <td><%= position.description %></td>
+              <td><%= position.created_at%> </td>
+              <td><%= link_to "Edit", edit_position_path(position)%></td>
+              <td><%= link_to "Remove", position, method: :delete, data: { confirm: "Are you sure?" } %></td>
             </tr>
     <%end%>
   </tbody>

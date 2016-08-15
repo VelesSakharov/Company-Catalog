@@ -1,5 +1,6 @@
+# Top layer controller W/ some logic
 class CompaniesController < ApplicationController
-  #before_filter :find_company, :only=> %w[show edit update destroy]
+  before_action :find_company, only: %w(show edit update destroy)
 
   def index
     @companies = Company.order(id: :desc)
@@ -13,35 +14,31 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
-      flash[:notice] = "Company successfully created"
+      flash[:notice] = 'Company successfully created'
       redirect_to @company
     else
-      flash[:alert] = "Error creating company"
+      flash[:alert] = 'Error creating company'
       render :new
     end
   end
 
   def destroy
-    @company = Company.find(params[:id])
     @company.destroy
-    flash[:alert] = "Company deleted"
+    flash[:alert] = 'Company deleted'
     redirect_to(companies_url)
   end
 
   def show
-    @company = Company.find(params[:id])
   end
 
   def edit
-    @company = Company.find(params[:id])
   end
 
   def update
-    @company = Company.find(params[:id])
     if @company.update(company_params)
-      flash[:notice] = "Company successfully updated"
+      flash[:notice] = 'Company successfully updated'
       redirect_to @company
-     else
+    else
       render :edit
     end
   end
@@ -49,7 +46,8 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :location, :contacts, :ownership, :position_ids=>[])
+    params.require(:company)
+          .permit(:name, :location, :contacts, :ownership, position_ids: [])
   end
 
   def find_company

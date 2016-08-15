@@ -1,13 +1,11 @@
+# model describing employee
 class User < ActiveRecord::Base
-
   belongs_to :company
+  belongs_to :position
 
-  validates :name, :birth, :contacts, :status, :company_id, :position_id, presence: true
-
-  class << columns_hash['birth']
-    def type
-      :date
-    end
-  end
-
+  validates :name, presence: true, length: { maximum: 30 }
+  validates :contacts, presence: true, length: { maximum: 60 }
+  validates :education, length: { maximum: 120 }
+  validates :lastwork, length: { maximum: 30 }
+  validates :birth, :status, :company_id, :position_id, presence: true
 end

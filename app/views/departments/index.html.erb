@@ -10,18 +10,18 @@
   </thead>
 
   <tbody>
-  <% @departments.each do |d| %>
-      <% if d.company_id.equal?(@company.id) %>
+  <% @departments.each do |department| %>
+
         <tr>
-          <td><%= d.name %></td>
-          <td><%= d.description %></td>
-          <td><%=@company.name%> </td>
-          <td><%= d.created_at%> </td>
-          <td><%= link_to "company", company_path(d.company_id.to_c) %></td>
-          <td><%= link_to "Edit", edit_company_department_url(d.company_id.to_c, d) %></td>
-          <td><%= link_to "Remove", company_department_path(d.company_id.to_c, d), method: :delete, data: { confirm: "Are you sure?" } %></td>
+          <td><%= department.name %></td>
+          <td><%= department.description %></td>
+          <td><%= department.company.name%> </td>
+          <td><%= department.created_at%> </td>
+          <td><%= link_to "company", company_path(department.company) %></td>
+          <td><%= link_to "Edit", edit_company_department_url(department.company_id.to_c, department) %></td>
+          <td><%= link_to "Remove", company_department_path(department.company_id.to_c, department), method: :delete, data: { confirm: "Are you sure?" } %></td>
         </tr>
-      <% end %>
+
   <%end%>
   </tbody>
 

@@ -4,39 +4,39 @@
 <div class="col-sm-8">
 
 
-  <%= form_for [@company, @user] do |f| %>
+  <%= form_for @user, url: { action: :create } do |user| %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, required: true %>
+      <%= user.label :name %>
+      <%= user.text_field :name, required: true %>
 
-      <%= f.label :birth_date %>
-      <%= f.date_select :birth, :start_year => 1920, :end_year => Time.now.year %>
+      <%= user.label :birth_date %>
+      <%= user.date_select :birth, :start_year => 1920, :end_year => Time.now.year %>
 
-      <%= f.label :contacts %>
-      <%= f.text_field :contacts, required: true %>
+      <%= user.label :contacts %>
+      <%= user.text_field :contacts, required: true %>
 
-      <%= f.label :education %>
-      <%= f.text_field :education%>
+      <%= user.label :education %>
+      <%= user.text_field :education%>
 
-      <%= f.label :previous_work %>
-      <%= f.text_field :lastwork %>
+      <%= user.label :previous_work %>
+      <%= user.text_field :lastwork %>
 
-      <%= f.label :position_id %>
-      <%= f.select( :position_id, Position.all.map {|c| [c.name, c.id]}, :selected=>params[:position_id]) %>
+      <%= user.label :position_id %>
+      <%= user.select( :position_id, Position.all.map {|c| [c.name, c.id]}, :selected=>params[:position_id]) %>
 
-      <%= f.label :company_id %>
-      <%= f.select( :company_id, Company.all.map {|c| [c.name, c.id]}, :selected=>params[:company_id]) %>
+      <%= user.label :company_id %>
+      <%= user.select( :company_id, Company.all.map {|c| [c.name, c.id]}, :selected=>params[:company_id]) %>
 
-      <%= f.label :status %>
-      <%= f.radio_button(:status, "1") %>
-      <%= f.label(:status, "trainee") %>
-      <%= f.radio_button(:status, "2") %>
-      <%= f.label(:status, "Working") %>
-      <%= f.radio_button(:status, "3") %>
-      <%= f.label(:status, "fired") %>
+      <%= user.label :status %>
+      <%= user.radio_button(:status, 'trainee') %>
+      <%= user.label(:status, 'Trainee') %>
+      <%= user.radio_button(:status, 'working') %>
+      <%= user.label(:status, 'Working') %>
+      <%= user.radio_button(:status, 'fired') %>
+      <%= user.label(:status, 'Fired') %>
 
       <br><center>
-        <%= f.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." }  %>
+        <%= user.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." }  %>
       </center></br>
 
   <% end %>

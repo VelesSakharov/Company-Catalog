@@ -1,52 +1,46 @@
+# controller for departments
 class DepartmentsController < ApplicationController
-  #before_filter :company_department, :only=> %w[show edit]
-  #before_filter :company_find, :only=> %w[index new]
-  #before_filter :department_find, :only=> %w[destroy update]
+  before_action :company_find
+  before_action :department_find, only: %w(destroy update edit)
 
   def index
-    @company = Company.find(params[:company_id])
-    @departments = Department.order(id: :desc)
+    @departments = @company.departments.order(id: :desc)
   end
 
   def new
-    @company = Company.find(params[:company_id])
-    @department= Department.new
+    @department = Department.new
   end
 
   def create
-
     @department = Department.new(department_params)
 
     if @department.save
-      flash[:notice] = "Department successfully created"
+      flash[:notice] = 'Department successfully created'
       redirect_to company_department_path(@department.company_id, @department.id)
     else
-      flash[:alert] = "Error creating department"
+      flash[:alert] = 'Error creating department'
       render :new
     end
   end
 
   def destroy
-    @department = Department.find(params[:id])
     @department.destroy
-    flash[:alert] = "Department deleted"
+    flash[:alert] = 'Department deleted'
     redirect_to(company_departments_path)
   end
 
   def show
-    @company = Company.find(params[:company_id])
-    @department = Department.find(params[:id])
+    @department = @company.departments.find(params[:id])
   end
 
   def edit
-    @company = Company.find(params[:company_id])
-    @department = Department.find(params[:id])
   end
 
   def update
     @department = Department.find(params[:id])
+
     if @department.update(department_params)
-      flash[:notice] = "Department successfully updated"
+      flash[:notice] = 'Department successfully updated'
       redirect_to company_department_path(@department.company_id, @department.id)
     else
       render :edit
@@ -57,11 +51,6 @@ class DepartmentsController < ApplicationController
 
   def department_params
     params.require(:department).permit(:name, :description, :company_id)
-  end
-
-  def company_department
-    @company = Company.find(params[:company_id])
-    @department = Department.find(params[:id])
   end
 
   def company_find

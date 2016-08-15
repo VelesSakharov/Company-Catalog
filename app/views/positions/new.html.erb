@@ -4,17 +4,17 @@
 <div class="col-sm-8">
 
 
-  <%= form_for @position do |p| %>
+  <%= form_for @position do |position| %>
 
-      <%= p.label :name %>
-      <%= p.text_field :name, required: true %>
+      <%= position.label :name %>
+      <%= position.text_field :name, required: true %>
 
-      <%= p.label :description %>
-      <%=p.text_field :description%>
+      <%= position.label :description %>
+      <%= position.text_field :description%>
 
 
       <br><center>
-         <%= p.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." }  %>
+         <%= position.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." }  %>
       </center></br>
 
   <% end %>
