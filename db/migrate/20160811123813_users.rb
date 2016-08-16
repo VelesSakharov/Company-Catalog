@@ -8,7 +8,10 @@ class Users < ActiveRecord::Migration
       t.string :contacts, null: false, limit: 60
       t.string :education, limit: 120
       t.string :lastwork, limit: 30
-      t.string :status, null: false
+      t.string :status, null: false,
+                inclusion: { in: %w(Trainee Working Fired),
+                   as: :trigger,
+                   message: 'cannot be anything else than Trainee, Working, or Wired' }
 
       t.timestamps null: false
     end

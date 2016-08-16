@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Company < ActiveRecord::Base
   has_and_belongs_to_many :positions, dependent: :delete_all
   has_many :departments, dependent: :delete_all

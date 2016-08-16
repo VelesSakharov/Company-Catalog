@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PositionsController < ApplicationController
   before_action :find_position, only: %w(destroy show edit update)
 
