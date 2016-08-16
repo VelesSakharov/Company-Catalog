@@ -1,8 +1,6 @@
-<% provide(:title, "New company") %>
+<% provide(:title, 'New company') %>
 
-
-<div class="col-sm-8">
-
+<div class='col-sm-8'>
 
   <%= form_for @company do |f| %>
 
@@ -10,31 +8,29 @@
       <%= f.text_field :name, required: true %>
 
       <%= f.label :location %>
-      <%=f.text_field :location, required: true%>
+      <%=f.text_field :location, required: true %>
 
       <%= f.label :contacts %>
-      <%=f.text_field :contacts, required: true%>
+      <%=f.text_field :contacts, required: true %>
 
       <%= f.label :type %>
-      <%=f.text_field :ownership%>
+      <%=f.text_field :ownership %>
 
       <%= f.label :positions %>
-      <%= f.collection_check_boxes(:position_ids, Position.all, :id, :name)%>
+      <%= f.collection_check_boxes(:position_ids, Position.all, :id, :name) %>
 
 
-    <br><center>
-      <%= f.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." }  %>
-    </center></br>
-
-  <%end%>
-
-  <% if @company.errors.any? %>
-
-    <% @company.errors.full_messages.each do |error| %>
-      <%flash[:alert] = error%>
-    <% end %>
+      <br><center>
+        <%= f.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
+      </center></br>
 
   <% end %>
 
+  <% if @company.errors.any? %>
 
+      <% @company.errors.full_messages.each do |error| %>
+          <% flash[:alert] = error %>
+      <% end %>
+
+  <% end %>
 </div>

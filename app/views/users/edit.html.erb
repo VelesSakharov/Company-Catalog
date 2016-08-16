@@ -1,7 +1,6 @@
-<% provide(:title, "Edit employer") %>
+<% provide(:title, 'Edit employer') %>
 
-
-<div class="col-md-8">
+<div class='col-md-8'>
 
   <%= form_for @user, url: { action: :update } do |user| %>
 
@@ -9,41 +8,37 @@
       <%= user.text_field :name, required: true %>
 
       <%= user.label :birth_date %>
-      <%= user.date_select :birth, :start_year => 1920, :end_year => Time.now.year %>
+      <%= user.date_select :birth, start_year: 1920, end_year: Time.now.year %>
 
       <%= user.label :contacts %>
       <%= user.text_field :contacts, required: true %>
 
       <%= user.label :education %>
-      <%= user.text_field :education%>
+      <%= user.text_field :education %>
 
       <%= user.label :previous_work %>
       <%= user.text_field :lastwork %>
 
       <%= user.label :position %>
-      <%= user.select( :position_id, Position.all.map {|c| [c.name, c.id]}, :selected=>params[:position_id]) %>
+      <%= user.select( :position_id, Position.all.map {|c| [c.name, c.id]}, selected: params[:position_id]) %>
 
       <%= user.label :company %>
-      <%= user.select( :company_id, Company.all.map {|c| [c.name, c.id]}, :selected=>params[:company_id]) %>
+      <%= user.select( :company_id, Company.all.map {|c| [c.name, c.id]}, selected: params[:company_id]) %>
 
       <%= user.label :status %>
-      <%= user.radio_button(:status, "trainee") %>
-      <%= user.label(:status, "Trainee") %>
-      <%= user.radio_button(:status, "working") %>
-      <%= user.label(:status, "Working") %>
-      <%= user.radio_button(:status, "fired") %>
-      <%= user.label(:status, "Fired") %>
+      <%= user.select :status, options_for_select( %w(Trainee Working Fired), %w(trainee working fired)) %>
+
 
       <br><center>
-        <%= user.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." } %>
-      </center></br>
+  <%= user.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
+</center></br>
 
   <% end %>
 
   <% if @user.errors.any? %>
 
       <% @user.errors.full_messages.each do |error| %>
-          <%flash[:alert] = error%>
+          <% flash[:alert] = error %>
       <% end %>
 
   <% end %>

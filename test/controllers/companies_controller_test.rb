@@ -1,22 +1,22 @@
 require 'test_helper'
 
 class CompaniesControllerTest < ActionController::TestCase
-  test 'should get index' do
+  test 'get index' do
     get :index
     assert_response :success
   end
 
-  test 'should get new' do
+  test 'get new' do
     get :new
     assert_response :success
   end
 
-  test 'should get create' do
+  test 'get create' do
     get :create
     assert_response :success
   end
 
-  test 'should get show' do
+  test 'get show' do
     get :show
     assert_response :success
   end

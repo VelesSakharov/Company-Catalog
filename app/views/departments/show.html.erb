@@ -1,4 +1,4 @@
-<% provide(:title, "Department info") %>
+<% provide(:title, 'Department info') %>
 
 <table>
   <thead>
@@ -10,20 +10,18 @@
 
   <tbody>
 
-
-      <tr>
-        <td><%= @department.name %></td>
-        <td><%= @department.description%> </td>
-        <td><%= @department.company.name%> </td>
-        <td><%= @department.created_at%> </td>
-        <td><%= link_to "Edit", edit_company_department_path(@department.company_id.to_c, @department) %></td>
-        <td><%= link_to "Remove", company_department_path, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
-
+  <tr>
+    <td><%= @department.name %></td>
+    <td><%= @department.description %> </td>
+    <td><%= @department.company.name %> </td>
+    <td><%= @department.created_at %> </td>
+    <td><%= link_to 'Edit', edit_company_department_path(@department.company_id.to_c, @department) %></td>
+    <td><%= link_to 'Remove', company_department_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 
   </tbody>
 </table>
 
 <br><center>
-  <%= button_to "Department List", company_departments_path, :class => "button", :method => :get  %>
+  <%= button_to 'Department List', company_departments_path, class: 'button', method: :get %>
 </center></br>

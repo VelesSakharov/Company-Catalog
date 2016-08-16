@@ -1,4 +1,4 @@
-<% provide(:title, "Employee info") %>
+<% provide(:title, 'Employee info') %>
 
 <table>
   <thead>
@@ -15,26 +15,23 @@
 
   <tbody>
 
-
-      <tr>
-        <td><%= @user.name %></td>
-        <td><%= @user.birth%> </td>
-        <td><%= @user.company.name%> </td>
-        <td><%= @user.contacts%> </td>
-        <td><%= @user.education%> </td>
-        <td><%= @user.lastwork%> </td>
-        <td><%= @user.position.name%> </td>
-        <td><%= @user.status%></td>
-        <td><%= @user.created_at%> </td>
-        <td><%= link_to "Edit", edit_company_user_path(@user.company_id.to_c, @user) %></td>
-        <td><%= link_to "Remove", company_user_path, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
-
-
+  <tr>
+    <td><%= @user.name %></td>
+    <td><%= @user.birth%> </td>
+    <td><%= @user.company.name%> </td>
+    <td><%= @user.contacts%> </td>
+    <td><%= @user.education%> </td>
+    <td><%= @user.lastwork%> </td>
+    <td><%= @user.position.name%> </td>
+    <td><%= @user.status%></td>
+    <td><%= @user.created_at%> </td>
+    <td><%= link_to 'Edit', edit_company_user_path(@user.company_id.to_c, @user) %></td>
+    <td><%= link_to 'Remove', company_user_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 
   </tbody>
 </table>
 
 <br><center>
-  <%= button_to "Employee List", company_users_path, :class => "button", :method => :get  %>
+  <%= button_to 'Employee List', company_users_path, class: 'button', method: :get  %>
 </center></br>

@@ -1,8 +1,6 @@
-<% provide(:title, "Edit company") %>
+<% provide(:title, 'Edit company') %>
 
-
-<div class="col-md-8">
-
+<div class='col-md-8'>
 
     <%= form_for @company do |company| %>
 
@@ -10,34 +8,31 @@
         <%= company.text_field :name, required: true %>
 
         <%= company.label :location %>
-        <%= company.text_field :location, required: true%>
+        <%= company.text_field :location, required: true %>
 
         <%= company.label :contacts %>
-        <%= company.text_field :contacts, required: true%>
+        <%= company.text_field :contacts, required: true %>
 
         <%= company.label :type %>
-        <%= company.text_field :ownership%>
+        <%= company.text_field :ownership %>
 
 
         <%= company.label :position_ids %>
-        <%= company.collection_check_boxes(:position_ids, Position.all, :id, :name)%>
+        <%= company.collection_check_boxes(:position_ids, Position.all, :id, :name) %>
 
       <br><center>
 
-          <%= company.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." } %>
+          <%= company.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
 
       </center></br>
 
     <% end %>
 
-
     <% if @company.errors.any? %>
 
       <% @company.errors.full_messages.each do |error| %>
-          <%flash[:alert] = error%>
+          <% flash[:alert] = error %>
       <% end %>
 
     <% end %>
-
-
 </div>

@@ -1,7 +1,6 @@
-# controller for departments
 class DepartmentsController < ApplicationController
   before_action :company_find
-  before_action :department_find, only: %w(destroy update edit)
+  before_action :find_department, only: %w(destroy update edit)
 
   def index
     @departments = @company.departments.order(id: :desc)
@@ -57,7 +56,7 @@ class DepartmentsController < ApplicationController
     @company = Company.find(params[:company_id])
   end
 
-  def department_find
+  def find_department
     @department = Department.find(params[:id])
   end
 end

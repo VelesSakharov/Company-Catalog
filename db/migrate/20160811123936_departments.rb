@@ -1,4 +1,3 @@
-# migration for departments
 class Departments < ActiveRecord::Migration
   def change
     create_table :departments do |t|

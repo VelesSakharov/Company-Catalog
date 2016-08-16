@@ -1,6 +1,5 @@
-# Controller for positions
 class PositionsController < ApplicationController
-  before_action :position_find, only: %w(destroy show edit update)
+  before_action :find_position, only: %w(destroy show edit update)
 
   def index
     if params.has_key?(:company_id)
@@ -53,7 +52,7 @@ class PositionsController < ApplicationController
     params.require(:position).permit(:name, :description)
   end
 
-  def position_find
+  def find_position
     @position = Position.find(params[:id])
   end
 end

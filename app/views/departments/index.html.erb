@@ -1,7 +1,6 @@
-<% provide(:title, "Departments list") %>
+<% provide(:title, 'Departments list') %>
 
-
-<table class="table table-hover">
+<table class='table table-hover'>
   <thead>
   <th>Name</th>
   <th>Description</th>
@@ -12,27 +11,25 @@
   <tbody>
   <% @departments.each do |department| %>
 
-        <tr>
-          <td><%= department.name %></td>
-          <td><%= department.description %></td>
-          <td><%= department.company.name%> </td>
-          <td><%= department.created_at%> </td>
-          <td><%= link_to "company", company_path(department.company) %></td>
-          <td><%= link_to "Edit", edit_company_department_url(department.company_id.to_c, department) %></td>
-          <td><%= link_to "Remove", company_department_path(department.company_id.to_c, department), method: :delete, data: { confirm: "Are you sure?" } %></td>
-        </tr>
+      <tr>
+        <td><%= department.name %></td>
+        <td><%= department.description %></td>
+        <td><%= department.company.name %> </td>
+        <td><%= department.created_at %> </td>
+        <td><%= link_to 'company', company_path(department.company) %></td>
+        <td><%= link_to 'Edit', edit_company_department_url(department.company_id.to_c, department) %></td>
+        <td><%= link_to 'Remove', company_department_path(department.company_id.to_c, department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
 
-  <%end%>
+  <% end %>
   </tbody>
 
 </table>
 
 <br><center>
-  <%= button_to "New Department", new_company_department_path, :class=>"button", :method => :get  %>
+  <%= button_to 'New Department', new_company_department_path, class: 'button', method: :get %>
 </center></br>
 
-
-
 <br>
-  <%= button_to "Companies", companies_path, :class=>"button", :method => :get  %>
+<%= button_to 'Companies', companies_path, class: 'button', method: :get %>
 </br>

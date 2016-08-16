@@ -1,8 +1,6 @@
-<% provide(:title, "New department") %>
+<% provide(:title, 'New department') %>
 
-
-<div class="col-sm-8">
-
+<div class='col-sm-8'>
 
   <%= form_for @position do |position| %>
 
@@ -10,22 +8,21 @@
       <%= position.text_field :name, required: true %>
 
       <%= position.label :description %>
-      <%= position.text_field :description%>
+      <%= position.text_field :description %>
 
 
       <br><center>
-         <%= position.submit "Save changes", :class=>"button", :data => { :disable_with => "Wait..." }  %>
-      </center></br>
+  <%= position.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' }  %>
+</center></br>
 
   <% end %>
 
   <% if @position.errors.any? %>
 
       <% @position.errors.full_messages.each do |error| %>
-          <%flash[:alert] = error%>
+          <% flash[:alert] = error %>
       <% end %>
 
   <% end %>
-
 
 </div>

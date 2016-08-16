@@ -1,4 +1,4 @@
-<% provide(:title, "Department info") %>
+<% provide(:title, 'Department info') %>
 
 <table>
   <thead>
@@ -11,17 +11,16 @@
   <tbody>
 
   <tr>
-        <td><%= @position.name %></td>
-        <td><%= @position.description%> </td>
-        <td><%= @position.created_at%> </td>
-        <td><%= link_to "Edit", edit_position_path %></td>
-        <td><%= link_to "Remove", company_path, method: :delete, data: { confirm: "Are you sure?" } %></td>
+    <td><%= @position.name %></td>
+    <td><%= @position.description %> </td>
+    <td><%= @position.created_at %> </td>
+    <td><%= link_to 'Edit', edit_position_path %></td>
+    <td><%= link_to 'Remove', company_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-
 
   </tbody>
 </table>
 
 <br><center>
-  <%= button_to "Positions List", positions_path, :class => "button", :method => :get  %>
+  <%= button_to 'Positions List', positions_path, class: 'button', method: :get %>
 </center></br>

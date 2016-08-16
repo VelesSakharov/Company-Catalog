@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'companies#index'
   resources :companies do
-    resources :departments, shalloy: true
-    resources :users, shalloy: true
+    resources :departments
+    resources :users
   end
   resources :positions
 end

@@ -1,4 +1,3 @@
-# Top layer controller W/ some logic
 class CompaniesController < ApplicationController
   before_action :find_company, only: %w(show edit update destroy)
 
@@ -53,5 +52,4 @@ class CompaniesController < ApplicationController
   def find_company
     @company = Company.find(params[:id])
   end
-
 end

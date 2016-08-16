@@ -1,4 +1,3 @@
-# migration for positions
 class Positions < ActiveRecord::Migration
   def change
     create_table :positions do |t|

@@ -1,7 +1,6 @@
-# controller for users
 class UsersController < ApplicationController
-  before_action :company_find
-  before_action :user_find, only: %w(destroy update show edit)
+  before_action :find_company
+  before_action :find_user, only: %w(destroy update show edit)
 
     def index
       @users = @company.users.order(id: :asc)
@@ -53,11 +52,11 @@ class UsersController < ApplicationController
                     :education, :company_id, :position_id)
     end
 
-    def user_find
+    def find_user
       @user = User.find(params[:id])
     end
 
-    def company_find
+    def find_company
       @company = Company.find(params[:company_id])
     end
 end
