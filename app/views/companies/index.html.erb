@@ -1,32 +1,30 @@
 <% provide(:title, 'Companies list') %>
 
-
 <table class='table table-hover'>
   <thead>
-  <th>Name</th>
-  <th>Location</th>
-  <th>Contacts</th>
-  <th>Type</th>
-  <th>Created</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Contacts</th>
+    <th>Type</th>
+    <th>Created</th>
   </thead>
 
   <tbody>
-  <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= company.location %> </td>
-        <td><%= company.contacts %></td>
-        <td><%= company.ownership %> </td>
-        <td><%= company.created_at %> </td>
-        <td><%= link_to 'Show departments', company_departments_path(company.id) %> </td>
-        <td><%= link_to 'Show positions', positions_path(:company_id=>company.id) %> </td>
-        <td><%= link_to 'Show employee', company_users_path(company.id) %> </td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Remove', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
+    <% @companies.each do |company| %>
+        <tr>
+          <td><%= company.name %></td>
+          <td><%= company.location %> </td>
+          <td><%= company.contacts %></td>
+          <td><%= company.ownership %> </td>
+          <td><%= company.created_at %> </td>
+          <td><%= link_to 'Show departments', company_departments_path(company.id) %> </td>
+          <td><%= link_to 'Show positions', positions_path(:company_id=>company.id) %> </td>
+          <td><%= link_to 'Show employee', company_users_path(company.id) %> </td>
+          <td><%= link_to 'Edit', edit_company_path(company) %></td>
+          <td><%= link_to 'Remove', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
   </tbody>
-
 </table>
 
 <br><center>

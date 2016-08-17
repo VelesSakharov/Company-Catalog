@@ -2,17 +2,14 @@
 
 <table>
   <thead>
-
-  <th>Name</th>
-  <th>Location</th>
-  <th>Contacts</th>
-  <th>Type</th>
-  <th>Created</th>
-
+    <th>Name</th>
+    <th>Location</th>
+    <th>Contacts</th>
+    <th>Type</th>
+    <th>Created</th>
   </thead>
 
   <tbody>
-
       <tr>
         <td><%= @company.name %></td>
         <td><%= @company.location %> </td>
@@ -22,7 +19,6 @@
         <td><%= link_to 'Edit', edit_company_path(@company) %></td>
         <td><%= link_to 'Remove', @company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-
   </tbody>
 </table>
 

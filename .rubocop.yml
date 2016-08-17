@@ -1,0 +1,32 @@
+
+# This is the configuration used to check the rubocop source code.
+
+inherit_from: .rubocop_todo.yml
+LineLength:
+  Max: 150
+AllCops:
+  Exclude:
+    - 'spec/**/*'
+    - 'features/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'config/unicorn/*'
+  TargetRubyVersion: 2.3
+  DisplayCopNames: true
+Rails:
+  Enabled: true
+Style/ClassAndModuleChildren:
+  Enabled: false
+Metrics/MethodLength:
+  CountComments: false
+Metrics/ClassLength:
+  CountComments: false
+Metrics/ModuleLength:
+  CountComments: false
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

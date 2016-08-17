@@ -1,7 +1,6 @@
 <% provide(:title, 'Edit employer') %>
 
 <div class='col-md-8'>
-
   <%= form_for @user, url: { action: :update } do |user| %>
 
       <%= user.label :name %>
@@ -26,12 +25,12 @@
       <%= user.select( :company_id, Company.all.map {|c| [c.name, c.id]}, selected: params[:company_id]) %>
 
       <%= user.label :status %>
-      <%= user.select :status, options_for_select( %w(Trainee Working Fired), %w(trainee working fired)) %>
+      <%= user.select :status, options_for_select(%w(Trainee Working Fired), %w(trainee working fired)) %>
 
 
       <br><center>
-  <%= user.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
-</center></br>
+        <%= user.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
+      </center></br>
 
   <% end %>
 

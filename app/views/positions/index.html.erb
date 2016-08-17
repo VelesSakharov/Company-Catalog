@@ -2,23 +2,22 @@
 
 <table class='table table-hover'>
   <thead>
-  <th>Name</th>
-  <th>Description</th>
-  <th>Created</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Created</th>
   </thead>
 
   <tbody>
-  <% @positions.each do |position| %>
-      <tr>
-        <td><%= position.name %></td>
-        <td><%= position.description %></td>
-        <td><%= position.created_at %></td>
-        <td><%= link_to 'Edit', edit_position_path(position) %></td>
-        <td><%= link_to 'Remove', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
+    <% @positions.each do |position| %>
+        <tr>
+          <td><%= position.name %></td>
+          <td><%= position.description %></td>
+          <td><%= position.created_at %></td>
+          <td><%= link_to 'Edit', edit_position_path(position) %></td>
+          <td><%= link_to 'Remove', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
   </tbody>
-
 </table>
 
 <br><center>

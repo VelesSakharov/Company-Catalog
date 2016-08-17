@@ -1,7 +1,6 @@
 <% provide(:title, 'Edit department') %>
 
 <div class='col-md-8'>
-
   <%= form_for @department, url: { action: :update } do |department| %>
 
       <%= department.label :name %>
@@ -14,8 +13,8 @@
       <%= department.select( :company_id,  Company.all.map {|c| [c.name, c.id]}) %>
 
       <br><center>
-  <%= department.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
-</center></br>
+        <%= department.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
+      </center></br>
 
   <% end %>
 

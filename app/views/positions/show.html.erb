@@ -2,22 +2,20 @@
 
 <table>
   <thead>
-  <th>Name</th>
-  <th>Description</th>
-  <th>Owner</th>
-  <th>Created</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Owner</th>
+    <th>Created</th>
   </thead>
 
   <tbody>
-
-  <tr>
-    <td><%= @position.name %></td>
-    <td><%= @position.description %> </td>
-    <td><%= @position.created_at %> </td>
-    <td><%= link_to 'Edit', edit_position_path %></td>
-    <td><%= link_to 'Remove', company_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-
+    <tr>
+      <td><%= @position.name %></td>
+      <td><%= @position.description %> </td>
+      <td><%= @position.created_at %> </td>
+      <td><%= link_to 'Edit', edit_position_path %></td>
+      <td><%= link_to 'Remove', company_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   </tbody>
 </table>
 

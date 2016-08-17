@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class DepartmentsController < ApplicationController
   before_action :company_find
   before_action :find_department, only: %w(destroy update edit)

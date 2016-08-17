@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class UsersController < ApplicationController
   before_action :find_company
   before_action :find_user, only: %w(destroy update show edit)
