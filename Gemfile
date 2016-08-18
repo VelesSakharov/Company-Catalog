@@ -6,6 +6,7 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 gem 'dotenv-rails'
 gem 'rubocop', '~> 0.42.0'
+gem 'access-granted', '~> 1.1.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

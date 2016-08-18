@@ -1,6 +1,6 @@
-class Users < ActiveRecord::Migration
+class Employees < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :employees do |t|
       t.integer :company_id, index: true, foreign_key: true, null: false
       t.integer :position_id, foreign_key: true, null: false
       t.string :name, null: false, limit: 30

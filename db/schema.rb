@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812072447) do
+ActiveRecord::Schema.define(version: 20160818075226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,12 +35,6 @@ ActiveRecord::Schema.define(version: 20160812072447) do
   add_index "companies_positions", ["company_id"], name: "index_companies_positions_on_company_id", using: :btree
   add_index "companies_positions", ["position_id"], name: "index_companies_positions_on_position_id", using: :btree
 
-  create_table "dbs", force: :cascade do |t|
-    t.string   "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "departments", force: :cascade do |t|
     t.integer  "company_id",              null: false
     t.string   "name",        limit: 30,  null: false
@@ -51,16 +45,7 @@ ActiveRecord::Schema.define(version: 20160812072447) do
 
   add_index "departments", ["company_id"], name: "index_departments_on_company_id", using: :btree
 
-  create_table "positions", force: :cascade do |t|
-    t.string   "name",        limit: 30,  null: false
-    t.string   "description", limit: 250
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "positions", ["name"], name: "index_positions_on_name", unique: true, using: :btree
-
-  create_table "users", force: :cascade do |t|
+  create_table "employees", force: :cascade do |t|
     t.integer  "company_id",              null: false
     t.integer  "position_id",             null: false
     t.string   "name",        limit: 30,  null: false
@@ -73,6 +58,22 @@ ActiveRecord::Schema.define(version: 20160812072447) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
+  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name",        limit: 30,  null: false
+    t.string   "description", limit: 250
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "positions", ["name"], name: "index_positions_on_name", unique: true, using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

@@ -1,0 +1,44 @@
+<% provide(:title, 'Edit employer') %>
+
+<div class='col-md-8'>
+  <%= form_for @employee, url: {action: :update } do |employee| %>
+
+      <%= employee.label :name %>
+      <%= employee.text_field :name, required: true %>
+
+      <%= employee.label :birth_date %>
+      <%= employee.date_select :birth, start_year: 1920, end_year: Time.now.year %>
+
+      <%= employee.label :contacts %>
+      <%= employee.text_field :contacts, required: true %>
+
+      <%= employee.label :education %>
+      <%= employee.text_field :education %>
+
+      <%= employee.label :previous_work %>
+      <%= employee.text_field :lastwork %>
+
+      <%= employee.label :position %>
+      <%= employee.select(:position_id, Position.all.map {|c| [c.name, c.id]}, selected: params[:position_id]) %>
+
+      <%= employee.label :company %>
+      <%= employee.select(:company_id, Company.all.map {|c| [c.name, c.id]}, selected: params[:company_id]) %>
+
+      <%= employee.label :status %>
+      <%= employee.select :status, options_for_select(%w(Trainee Working Fired), %w(trainee working fired)) %>
+
+
+      <br><center>
+        <%= employee.submit 'Save changes', class: 'button', data: {disable_with: 'Wait...' } %>
+      </center></br>
+
+  <% end %>
+
+  <% if @employee.errors.any? %>
+
+      <% @employee.errors.full_messages.each do |error| %>
+          <% flash[:alert] = error %>
+      <% end %>
+
+  <% end %>
+</div>

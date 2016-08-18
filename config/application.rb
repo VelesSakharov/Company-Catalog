@@ -7,6 +7,7 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
+#config.autoload_paths += %W(#{config.root}/app/policies #{config.root}/app/roles)
 
 module CompanyCatalog
   class Application < Rails::Application
