@@ -34,10 +34,8 @@
   <% end %>
 
   <% if @employee.errors.any? %>
-
       <% @employee.errors.full_messages.each do |error| %>
-          <% flash[:alert] = error %>
+        <% flash[:alert] = error %>
       <% end %>
-
   <% end %>
 </div>

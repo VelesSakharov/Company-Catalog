@@ -19,10 +19,8 @@
   <% end %>
 
   <% if @department.errors.any? %>
-
       <% @department.errors.full_messages.each do |error| %>
-          <% flash[:alert] = error %>
+        <% flash[:alert] = error %>
       <% end %>
-
   <% end %>
 </div>

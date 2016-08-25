@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
   resources :positions
   resources :users, only: [:update] do
-  collection do
-    get 'list'
-  end
+    collection do
+      get 'list'
+    end
   end
 end

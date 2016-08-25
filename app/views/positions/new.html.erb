@@ -1,27 +1,25 @@
 <% provide(:title, 'New department') %>
 <% if signed_in? %>
-<div class='col-sm-8'>
-  <%= form_for @position do |position| %>
+  <div class='col-sm-8'>
+    <%= form_for @position do |position| %>
 
-      <%= position.label :name %>
-      <%= position.text_field :name, required: true %>
+        <%= position.label :name %>
+        <%= position.text_field :name, required: true %>
 
-      <%= position.label :description %>
-      <%= position.text_field :description %>
+        <%= position.label :description %>
+        <%= position.text_field :description %>
 
 
-      <br><center>
-        <%= position.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' }  %>
-      </center></br>
+        <br><center>
+          <%= position.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' }  %>
+        </center></br>
 
-  <% end %>
-  <% end %>
+    <% end %>
+<% end %>
 
   <% if @position.errors.any? %>
-
       <% @position.errors.full_messages.each do |error| %>
-          <% flash[:alert] = error %>
+        <% flash[:alert] = error %>
       <% end %>
-
   <% end %>
 </div>

@@ -19,7 +19,6 @@
           <%= f.label :positions %>
           <%= f.collection_check_boxes(:position_ids, Position.all, :id, :name) %>
 
-
           <br><center>
             <%= f.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
           </center></br>
@@ -28,10 +27,8 @@
   <% end %>
 
   <% if @company.errors.any? %>
-
-      <% @company.errors.full_messages.each do |error| %>
-          <% flash[:alert] = error %>
-      <% end %>
-
+    <% @company.errors.full_messages.each do |error| %>
+      <% flash[:alert] = error %>
+    <% end %>
   <% end %>
 </div>

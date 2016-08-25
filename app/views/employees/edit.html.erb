@@ -27,7 +27,6 @@
       <%= employee.label :status %>
       <%= employee.select :status, options_for_select(%w(Trainee Working Fired), %w(trainee working fired)) %>
 
-
       <br><center>
         <%= employee.submit 'Save changes', class: 'button', data: {disable_with: 'Wait...' } %>
       </center></br>
@@ -35,10 +34,8 @@
   <% end %>
 
   <% if @employee.errors.any? %>
-
       <% @employee.errors.full_messages.each do |error| %>
-          <% flash[:alert] = error %>
+        <% flash[:alert] = error %>
       <% end %>
-
   <% end %>
 </div>

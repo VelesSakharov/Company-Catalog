@@ -23,14 +23,12 @@
         <br><center>
           <%= company.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
         </center></br>
-    <% end %>
-  <%end%>
+      <% end %>
+  <% end %>
 
   <% if @company.errors.any? %>
-
     <% @company.errors.full_messages.each do |error| %>
-        <% flash[:alert] = error %>
+      <% flash[:alert] = error %>
     <% end %>
-
   <% end %>
 </div>
