@@ -16,8 +16,10 @@
           <td><%= department.company.name %> </td>
           <td><%= department.created_at %> </td>
           <td><%= link_to 'company', company_path(department.company) %></td>
-          <td><%= link_to 'Edit', edit_company_department_url(department.company_id.to_c, department) %></td>
-          <td><%= link_to 'Remove', company_department_path(department.company_id.to_c, department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if signed_in? && current_user.admin?%>
+            <td><%= link_to 'Edit', edit_company_department_url(department.company_id.to_c, department) %></td>
+            <td><%= link_to 'Remove', company_department_path(department.company_id.to_c, department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
     <% end %>
   </tbody>

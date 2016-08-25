@@ -1,0 +1,20 @@
+<% provide(:title, 'Users list(admin only)') %>
+<table class='table table-hover'>
+  <thead>
+  <th>Name</th>
+  <th>Admin?</th>
+  <th>Toggle rights</th>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.admin %></td>
+        <% if signed_in? && current_user.admin?%>
+            <td><%= link_to 'Toggle admin rights', user_path(user), method: :patch, class: 'btn btn-info' %></td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

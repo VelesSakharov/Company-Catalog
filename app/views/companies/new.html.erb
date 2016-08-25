@@ -1,28 +1,30 @@
 <% provide(:title, 'New company') %>
 
-<div class='col-sm-8'>
-  <%= form_for @company do |f| %>
+  <% if signed_in? %>
+    <div class='col-sm-8'>
+      <%= form_for @company do |f| %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, required: true %>
+          <%= f.label :name %>
+          <%= f.text_field :name, required: true %>
 
-      <%= f.label :location %>
-      <%= f.text_field :location, required: true %>
+          <%= f.label :location %>
+          <%= f.text_field :location, required: true %>
 
-      <%= f.label :contacts %>
-      <%= f.text_field :contacts, required: true %>
+          <%= f.label :contacts %>
+          <%= f.text_field :contacts, required: true %>
 
-      <%= f.label :type %>
-      <%= f.text_field :ownership %>
+          <%= f.label :type %>
+          <%= f.text_field :ownership %>
 
-      <%= f.label :positions %>
-      <%= f.collection_check_boxes(:position_ids, Position.all, :id, :name) %>
+          <%= f.label :positions %>
+          <%= f.collection_check_boxes(:position_ids, Position.all, :id, :name) %>
 
 
-      <br><center>
-        <%= f.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
-      </center></br>
+          <br><center>
+            <%= f.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
+          </center></br>
 
+      <% end %>
   <% end %>
 
   <% if @company.errors.any? %>

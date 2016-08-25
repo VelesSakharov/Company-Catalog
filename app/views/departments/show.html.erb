@@ -14,8 +14,10 @@
       <td><%= @department.description %> </td>
       <td><%= @department.company.name %> </td>
       <td><%= @department.created_at %> </td>
-      <td><%= link_to 'Edit', edit_company_department_path(@department.company_id.to_c, @department) %></td>
-      <td><%= link_to 'Remove', company_department_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if signed_in? && current_user.admin?%>
+        <td><%= link_to 'Edit', edit_company_department_path(@department.company_id.to_c, @department) %></td>
+        <td><%= link_to 'Remove', company_department_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>

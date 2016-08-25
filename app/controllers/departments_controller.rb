@@ -1,6 +1,7 @@
 class DepartmentsController < ApplicationController
   before_action :company_find
   before_action :find_department, only: %w(destroy update edit)
+  before_action :require_login
 
   def index
     @departments = @company.departments.order(id: :desc)

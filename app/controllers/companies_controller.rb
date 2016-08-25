@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :find_company, only: %w(show edit update destroy)
+  after_action :verify_authorized, only: [:destroy]
 
   def index
     @companies = Company.order(id: :desc)
@@ -22,9 +23,14 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    @company.destroy
+    if @company.present?
+      authorize @company
+      @company.destroy
+    else
+      skip_authorization
+    end
     flash[:alert] = 'Company deleted'
-    redirect_to(companies_url)
+    redirect_to companies_url
   end
 
   def show

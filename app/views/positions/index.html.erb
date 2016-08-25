@@ -13,8 +13,10 @@
           <td><%= position.name %></td>
           <td><%= position.description %></td>
           <td><%= position.created_at %></td>
-          <td><%= link_to 'Edit', edit_position_path(position) %></td>
-          <td><%= link_to 'Remove', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if signed_in? && current_user.admin?%>
+            <td><%= link_to 'Edit', edit_position_path(position) %></td>
+            <td><%= link_to 'Remove', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
     <% end %>
   </tbody>

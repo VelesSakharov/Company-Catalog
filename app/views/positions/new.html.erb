@@ -1,5 +1,5 @@
 <% provide(:title, 'New department') %>
-
+<% if signed_in? %>
 <div class='col-sm-8'>
   <%= form_for @position do |position| %>
 
@@ -14,6 +14,7 @@
         <%= position.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' }  %>
       </center></br>
 
+  <% end %>
   <% end %>
 
   <% if @position.errors.any? %>

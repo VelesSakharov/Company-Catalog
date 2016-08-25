@@ -1,8 +1,9 @@
 class EmployeesController < ApplicationController
   before_action :find_company
   before_action :find_employee, only: %w(destroy update show edit)
+  before_action :require_login
 
-    def index
+  def index
       @employees = @company.employees.order(id: :asc)
     end
 
