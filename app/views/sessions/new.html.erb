@@ -1,6 +1,15 @@
+<% provide(:title, 'Welcome') %>
 <div id="clearance" class="sign-in">
-  <h2><%= t(".title") %></h2>
-
-  <%= render partial: '/sessions/form' %>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+        <h1>This is welcome page, and IDK how to make it nice and clean :)</h1>
+        <img src="http://doseng.org/uploads/posts/2013-10/1381364970_1-2.jpg" alt='Mountain View' >
+      </div>
+      <div class="col-sm-3">
+        <h2><%= t(".title") %></h2>
+        <%= render partial: '/sessions/form' %>
+      </div>
+    </div>
+  </div>
 </div>

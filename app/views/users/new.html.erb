@@ -1,3 +1,4 @@
+<% provide(:title, 'Registration') %>
 <div id="clearance" class="sign-up">
   <h2><%= t(".title") %></h2>
 
@@ -6,10 +7,6 @@
 
     <div class="submit-field">
       <%= form.submit %>
-    </div>
-
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
     </div>
   <% end %>
 </div>

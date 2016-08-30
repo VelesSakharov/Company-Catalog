@@ -3,13 +3,13 @@
 <div class='col-sm-8'>
   <%= form_for @employee, url: {action: :create } do |employee| %>
 
-      <%= employee.label :name %>
+      <%= employee.label 'name(required)' %>
       <%= employee.text_field :name, required: true %>
 
       <%= employee.label :birth_date %>
       <%= employee.date_select :birth, :start_year => 1920, :end_year => Time.now.year %>
 
-      <%= employee.label :contacts %>
+      <%= employee.label 'contacts(required)' %>
       <%= employee.text_field :contacts, required: true %>
 
       <%= employee.label :education %>
@@ -30,7 +30,7 @@
       <br><center>
         <%= employee.submit 'Save changes', class: 'button', data: {disable_with: 'Wait...' } %>
       </center></br>
-
+      <%= link_to 'Back', url_for(:back) %>
   <% end %>
 
   <% if @employee.errors.any? %>

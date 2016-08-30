@@ -15,17 +15,17 @@ class DepartmentsController < ApplicationController
     @department = Department.new(department_params)
 
     if @department.save
-      flash[:notice] = 'Department successfully created'
+      flash[:success] = 'Department successfully created.'
       redirect_to company_department_path(@department.company_id, @department.id)
     else
-      flash[:alert] = 'Error creating department'
+      flash[:alert] = 'Error creating department.'
       render :new
     end
   end
 
   def destroy
     @department.destroy
-    flash[:alert] = 'Department deleted'
+    flash[:alert] = 'Department deleted.'
     redirect_to(company_departments_path)
   end
 
@@ -40,7 +40,7 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
 
     if @department.update(department_params)
-      flash[:notice] = 'Department successfully updated'
+      flash[:success] = 'Department successfully updated.'
       redirect_to company_department_path(@department.company_id, @department.id)
     else
       render :edit

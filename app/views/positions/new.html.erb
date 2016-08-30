@@ -1,9 +1,9 @@
-<% provide(:title, 'New department') %>
+<% provide(:title, 'New position') %>
 <% if signed_in? %>
   <div class='col-sm-8'>
     <%= form_for @position do |position| %>
 
-        <%= position.label :name %>
+        <%= position.label 'name(required)' %>
         <%= position.text_field :name, required: true %>
 
         <%= position.label :description %>
@@ -15,6 +15,7 @@
         </center></br>
 
     <% end %>
+    <%= link_to 'Back', url_for(:back) %>
 <% end %>
 
   <% if @position.errors.any? %>

@@ -3,7 +3,7 @@
 <div class='col-md-8'>
   <%= form_for @department, url: { action: :update } do |department| %>
 
-      <%= department.label :name %>
+      <%= department.label 'name(required)' %>
       <%= department.text_field :name, required: true %>
 
       <%= department.label :description %>
@@ -15,7 +15,7 @@
       <br><center>
         <%= department.submit 'Save changes', class: 'button', data: { disable_with: 'Wait...' } %>
       </center></br>
-
+      <%= link_to 'Back', url_for(:back) %>
   <% end %>
 
   <% if @department.errors.any? %>

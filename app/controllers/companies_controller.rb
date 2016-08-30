@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
+    redirect_to :back unless signed_in?
     @company = Company.new
   end
 
@@ -14,10 +15,10 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
-      flash[:notice] = 'Company successfully created'
+      flash[:success] = 'Company successfully created.'
       redirect_to @company
     else
-      flash[:alert] = 'Error creating company'
+      flash[:alert] = 'Error creating company.'
       render :new
     end
   end
@@ -29,7 +30,7 @@ class CompaniesController < ApplicationController
     else
       skip_authorization
     end
-    flash[:alert] = 'Company deleted'
+    flash[:alert] = 'Company deleted.'
     redirect_to companies_url
   end
 
@@ -41,7 +42,7 @@ class CompaniesController < ApplicationController
 
   def update
     if @company.update(company_params)
-      flash[:notice] = 'Company successfully updated'
+      flash[:success] = 'Company successfully updated.'
       redirect_to @company
     else
       render :edit

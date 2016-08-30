@@ -26,8 +26,8 @@
           <td><%= employee.status %></td>
           <td><%= employee.created_at %></td>
           <% if signed_in? && current_user.admin?%>
-            <td><%= link_to 'Edit', edit_company_employee_path(employee.company_id.to_c, employee) %></td>
-            <td><%= link_to 'Remove', company_employee_path(employee.company_id.to_c, employee), method: :delete, data: {confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_company_employee_path(employee.company_id, employee) %></td>
+            <td><%= link_to 'Remove', company_employee_path(employee.company_id, employee), method: :delete, data: {confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
     <% end %>

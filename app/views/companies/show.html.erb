@@ -16,6 +16,9 @@
         <td><%= @company.contacts %></td>
         <td><%= @company.ownership %> </td>
         <td><%= @company.created_at %> </td>
+        <td><%= link_to 'Show departments', company_departments_path(@company.id) %> </td>
+        <td><%= link_to 'Show positions', positions_path(company_id: @company.id) %> </td>
+        <td><%= link_to 'Show employees', company_employees_path(@company.id) %> </td>
         <% if signed_in? && current_user.admin?%>
           <td><%= link_to 'Edit', edit_company_path(@company) %></td>
           <td><%= link_to 'Remove', @company, method: :delete, data: { confirm: 'Are you sure?' } %></td>

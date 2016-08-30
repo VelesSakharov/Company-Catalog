@@ -10,6 +10,7 @@ class PositionsController < ApplicationController
   end
 
   def new
+    redirect_to :back unless signed_in?
     @position = Position.new
   end
 
@@ -17,17 +18,17 @@ class PositionsController < ApplicationController
     @position = Position.new(position_params)
 
     if @position.save
-      flash[:notice] = 'Position successfully created'
+      flash[:success] = 'Position successfully created.'
       redirect_to positions_url
     else
-      flash[:alert] = 'Error creating position'
+      flash[:alert] = 'Error creating position.'
       render :new
     end
   end
 
   def destroy
     @position.destroy
-    flash[:alert] = 'Position deleted'
+    flash[:alert] = 'Position deleted.'
     redirect_to(positions_url)
   end
 
@@ -39,8 +40,8 @@ class PositionsController < ApplicationController
 
   def update
     if @position.update(position_params)
-      flash[:notice] = 'Position successfully updated'
-      redirect_to companies_url
+      flash[:success] = 'Position successfully updated.'
+      redirect_to position_url
     else
       render :edit
     end

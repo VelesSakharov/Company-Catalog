@@ -11,6 +11,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% unless request.path == sign_in_path || request.path == root_path || request.path == session_path  %>
   <div id="header">
     <% if signed_in? -%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete, class: 'button' %>
@@ -18,29 +19,31 @@
       <%= button_to t(".sign_in"), sign_in_path, method: :get, class: 'button' %>
     <% end -%>
   </div>
+<% end %>
 
-  <%= yield %>
+<%= yield %>
 
-  <% if flash[:alert] -%>
+  <% if flash[:alert] || flash[:notice] -%>
     <div class="col-sl-8">
       <div class="container">
         <div class="alert alert-danger fade in">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Warning!</strong> <%= flash[:alert] %>
+          <strong>Warning!</strong> <%= flash[:alert] || flash[:notice] %>
         </div>
       </div>
     </div>
 <% end %>
 
-<% if flash[:notice] -%>
+<% if flash[:success] -%>
     <div class="col-sl-8">
       <div class="container">
         <div class="alert alert-success fade in">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> <%= flash[:notice] %>
+          <strong>Success!</strong> <%= flash[:success] %>
         </div>
       </div>
     </div>
 <%end%>
+
 </body>
 </html>
